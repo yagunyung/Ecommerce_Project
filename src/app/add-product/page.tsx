@@ -3,7 +3,7 @@ import prisma from "@/lib/db/prisma";
 import { redirect } from "next/navigation";
 
 export const metadata = {
-  title: "Add Product - Flowmazon",
+  title: "Add Product - Aven888Shop",
 };
 
 async function addProduct(formData: FormData) {
@@ -27,14 +27,14 @@ async function addProduct(formData: FormData) {
 
 export default function AddProductPage() {
   return (
-    <div>
+    <div className="m-auto h-screen max-w-lg">
       <h1 className="mb-3 text-lg font-bold">Add Product</h1>
       <form action={addProduct}>
         <input
           required
           name="name"
           placeholder="Name"
-          className="input input-bordered mb-3 w-full text-lg"
+          className="input input-bordered mb-3 w-full"
         />
         <textarea
           required
@@ -47,14 +47,14 @@ export default function AddProductPage() {
           name="image"
           placeholder="Image URL"
           type="url"
-          className="input input-bordered mb-3 w-full text-lg"
+          className="input input-bordered mb-3 w-full"
         />
         <input
           required
           name="price"
           placeholder="Price"
           type="number"
-          className="input input-bordered mb-3 w-full text-lg"
+          className="input input-bordered mb-3 w-full"
         />
         <FormSubmitButton className="btn-block">Add Product</FormSubmitButton>
       </form>

@@ -8,11 +8,11 @@ import { revalidatePath } from "next/cache";
 export async function incrementProductQunatity(productId: string) {
   const cart = (await getCart()) ?? (await createCart());
 
-  const articleInCart = cart.items.find((item) => item.productId === productId);
+  const findItem = cart.items.find((item) => item.productId === productId);
 
-  if (articleInCart) {
+  if (findItem) {
     await prisma.cartItem.update({
-      where: { id: articleInCart.id },
+      where: { id: findItem.id },
       data: { quantity: { increment: 1 } },
     });
   } else {

@@ -1,12 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
-import logo from "@/app/assets/logo.png";
+import logo from "@/app/assets/image.png";
 import { redirect } from "next/navigation";
 import { getCart } from "@/lib/db/cart";
 import ShoppingCartButton from "./ShoppingCartButton";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../api/auth/[...nextauth]/route";
 import UserMenuButton from "./UserMenuButton";
+import ToggleModeButton from "@/components/ToggleModeButton";
 
 async function searchProducts(formData: FormData) {
   "use server";
@@ -23,13 +24,14 @@ export default async function Navbar() {
   const cart = await getCart();
 
   return (
-    <div className="bg-base-100">
+    <div className="bg-base-200">
       <div className="navbar m-auto max-w-7xl flex-col gap-2 sm:flex-row">
-        <div className="flex-1">
+        <div className="flex-1 gap-3">
           <Link href="/" className="btn btn-ghost text-xl normal-case">
             <Image src={logo} height={40} width={40} alt="Aven888Shop logo" />
-            Aven888Shop
+            BookRunner
           </Link>
+          <ToggleModeButton />
         </div>
         <div className="flex-none gap-2">
           <form action={searchProducts}>

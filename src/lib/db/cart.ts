@@ -43,7 +43,6 @@ export async function createCart(): Promise<ShoppingCart> {
     data: {},
   });
 
-  // Note: Needs encryption + secure settings in real production app
   cookies().set("localCartId", newCart.id);
 
   return {

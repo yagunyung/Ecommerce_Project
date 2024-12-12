@@ -9,7 +9,7 @@ export default function PaginationBar({
   currentPage,
   totalPage,
 }: PaginationBarProps) {
-  const maxPage = Math.min(totalPage, Math.max(currentPage - 4, 10));
+  const maxPage = Math.min(totalPage, Math.max(currentPage + 4, 10));
   const minPage = Math.max(1, Math.min(currentPage - 5, maxPage - 9));
 
   const numberedPageItems: JSX.Element[] = [];

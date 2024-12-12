@@ -1,5 +1,3 @@
-// import Image from "next/image";
-
 import prisma from "@/lib/db/prisma";
 import ProductCard from "@/components/ProductCard";
 import Image from "next/image";
@@ -27,6 +25,7 @@ export default async function Home({
     // pagination
     skip:
       (currentPage - 1) * pageSize + (currentPage === 1 ? 0 : heroItemCount),
+    // items to return
     take: pageSize + (currentPage === 1 ? heroItemCount : 0),
   });
 

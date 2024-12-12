@@ -1,15 +1,17 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
-import { useState, useTransition } from "react";
-import { incrementProductQunatity } from "./action";
+import { useState, useTransition } from "react"; 
 
 interface AddToCartButtonProps {
   productId: string;
   incrementProductQuantity: (productId: string) => Promise<void>;
 }
 
-export default function AddToCartButton({ productId }: AddToCartButtonProps) {
+export default function AddToCartButton({
+  productId,
+  incrementProductQuantity,
+}: AddToCartButtonProps) {
   const [isPending, startTransition] = useTransition();
   const [success, setSuccess] = useState(false);
 
@@ -20,9 +22,9 @@ export default function AddToCartButton({ productId }: AddToCartButtonProps) {
         onClick={() => {
           setSuccess(false);
           startTransition(async () => {
-            await incrementProductQunatity(productId);
-            setSuccess(true);
+            await incrementProductQuantity(productId);
           });
+          setSuccess(true);
         }}
         disabled={isPending}
       >

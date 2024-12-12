@@ -27,7 +27,7 @@ export default function CartEntry({
 
   return (
     <div>
-      <div className="flex flex-wrap items-center gap-3">
+      <div className="flex flex-wrap justify-between gap-3">
         <Image
           src={product.image}
           alt={product.name}
@@ -35,12 +35,12 @@ export default function CartEntry({
           height={200}
           className="rounded-lg"
         />
-        <div>
-          <Link href={"/products/" + product.id} className="font-bold">
+        <div className="flex flex-col justify-between">
+          <Link href={"/products/" + product.id} className="font-bold text-xl">
             {product.name}
           </Link>
-          <div>Price: {formatPrice(product.price)}</div>
-          <div className="my-1 flex items-center gap-2">
+          <div className="text-right">Price: {formatPrice(product.price)}</div>
+          <div className="my-1 flex items-center justify-end gap-2">
             Quantity:
             <select
               className="select select-bordered w-full max-w-[80px]"
@@ -56,7 +56,7 @@ export default function CartEntry({
               {quantityOptions}
             </select>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="text-right">
             Total: {formatPrice(product.price * quantity)}
             {isPending && (
               <span className="loading loading-spinner loading-sm" />

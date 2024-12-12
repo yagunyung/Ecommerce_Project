@@ -5,7 +5,7 @@ import { redirect } from "next/navigation";
 import { authOptions } from "../api/auth/[...nextauth]/route";
 
 export const metadata = {
-  title: "Add Product - Aven888Shop",
+  title: "Add Product - BookRunner",
 };
 
 async function addProduct(formData: FormData) {

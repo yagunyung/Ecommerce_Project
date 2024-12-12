@@ -2,16 +2,17 @@ import { getCart } from "@/lib/db/cart";
 import CartEntry from "./CartEntry";
 import { setProductQuantity } from "./action";
 import { formatPrice } from "@/lib/format";
+import CheckOutButton from "./CheckOutButton";
 
 export const metadata = {
-  title: "Your Cart - Aven888Shop",
+  title: "Your Cart - BookRunner",
 };
 
 export default async function CartPage() {
   const cart = await getCart();
 
   return (
-    <div>
+    <div >
       <h1 className="mb-6 text-3xl font-bold">Shopping Cart</h1>
       {cart?.items.map((cartItem) => (
         <CartEntry
@@ -25,7 +26,7 @@ export default async function CartPage() {
         <p className="mb-3 font-bold">
           Total: {formatPrice(cart?.subtotal || 0)}
         </p>
-        <button className="btn btn-primary sm:w-[200px]">CHECKOUT</button>
+        <CheckOutButton className="sm:w-[200px]">CHECKOUT</CheckOutButton>
       </div>
     </div>
   );

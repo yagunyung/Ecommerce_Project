@@ -7,7 +7,7 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  plugins: [daisyui,],
+  plugins: [daisyui],
   daisyui: {
     themes: [
       {
@@ -22,11 +22,27 @@ const config: Config = {
           warning: "#f79926",
           error: "#ea535a",
           body: {
-            "background-color": "#e3e6e6",
+            "background-color": "#ffffff",
+          },
+        },
+      },
+      {
+        darkTheme: {
+          primary: "#4f46e5",
+          secondary: "#60a5fa",
+          accent: "#1be885",
+          neutral: "#272136",
+          "base-100": "374151",
+          info: "#778ad4",
+          success: "#23b893",
+          warning: "#f79926",
+          error: "#ea535a",
+          body: {
+            "background-color": "#374151",
           },
         },
       },
     ],
-  }
+  },
 };
 export default config;

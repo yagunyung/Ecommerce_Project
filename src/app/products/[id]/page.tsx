@@ -25,7 +25,7 @@ export async function generateMetadata({
   const product = await getProduct(id);
 
   return {
-    title: product.name + "-- Aven888Shop",
+    title: product.name + "-- BookRunner",
     description: product.description,
     openGraph: {
       images: [{ url: product.image }],
@@ -51,7 +51,7 @@ export default async function ProductPage({
 
       <div>
         <h1 className="text-5xl font-bold">{product.name}</h1>
-        <PriceTag price={product.price} className="mt-4" />
+        <PriceTag price={product.price} className="mt-4 bg-base-200" />
         <p className="py-6">{product.description}</p>
         <AddToCartButton
           productId={product.id}
